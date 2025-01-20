@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class Adam {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // שאלה 8
+        int sum = 0;
+        System.out.println("הכנס מספרים, הקלד 0 כדי לסיים:");
+        while (true) {
+            int num = scanner.nextInt();
+            if (num == 0) break;
+            sum += num;
+        }
+        System.out.println("סכום המספרים: " + sum);
+
+        // שאלה 9
+        System.out.println("הכנס מספר לבדיקה אם הוא ראשוני:");
+        int n = scanner.nextInt();
+        boolean isPrime = true;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime && n > 1) {
+            System.out.println(n + " הוא מספר ראשוני.");
+        } else {
+            System.out.println(n + " הוא לא מספר ראשוני.");
+        }
+
+        // שאלה 10
+        System.out.println("הכנס מספר כדי להדפיס את כל המספרים הזוגיים עד אליו:");
+        int max = scanner.nextInt();
+        for (int i = 2; i <= max; i += 2) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        // שאלה 11
+        System.out.println("הכנס מספרים למציאת הגדול והשני בגודלו, הקלד -1 כדי לסיים:");
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+        while (true) {
+            int number = scanner.nextInt();
+            if (number == -1) break;
+            if (number > largest) {
+                secondLargest = largest;
+                largest = number;
+            } else if (number > secondLargest) {
+                secondLargest = number;
+            }
+        }
+        System.out.println("המספר הגדול ביותר: " + largest);
+        System.out.println("המספר השני בגודלו: " + secondLargest);
+
+        // שאלה 12
+        System.out.println("הכנס 10 מספרים כדי לחשב ממוצע:");
+        int count = 0;
+        double total = 0;
+        for (int i = 0; i < 10; i++) {
+            int numInput = scanner.nextInt();
+            total += numInput;
+            count++;
+        }
+        double average = total / count;
+        System.out.println("הממוצע הוא: " + average);
+    }
+}
